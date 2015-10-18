@@ -1,0 +1,2 @@
+# TeamEditor
+Bloodbowl Team Editor
