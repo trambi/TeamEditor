@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Copyright (C) 2010-2011  Bertrand MADET
+
+This org.tisseursdechimeres.bb.teameditor is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This org.tisseursdechimeres.bb.teameditor is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this org.tisseursdechimeres.bb.teameditor.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<project name="Test" basedir="." default="jarIt">
+	<!-- Init -->
+	<target name="init" description="Initialize build">
+		<property name="src" value="./src" />
+		<property name="bin" value="./bin" />
+		<property name="dist" value="./dist" />
+    	<property name="lib" value="./libs" />
+		
+		<property name="bb" value="bb" />
+		<property name="filter" value="bb_filter" />
+		<property name="bbcode" value="bb_bbcode" />
+		<property name="xml" value="bb_xml" />
+		<property name="bbel" value="bb_bbel" />
+		<property name="obblm" value="bb_obblm" />
+		<property name="teameditor" value="TeamEditor" />
+				
+		<property name="teamEditorMainClass" value="org.tisseursdechimeres.bb.teameditor.TeamEditor" />
+		<property name="teamEditorVersion" value="0.99.26" />
+		
+		<replace file="${src}/org/tisseursdechimeres/bb/teameditor/TeamEditorVersion.java" token="@VERSION@" value="${teamEditorVersion}" />
+		<replace file="install.nsi" token="@VERSION@" value="${teamEditorVersion}" />
+				
+		<mkdir dir="${bin}"/>
+		<mkdir dir="${dist}"/>
+		<delete dir="${bin}/${bb}" />
+		<mkdir dir="${bin}/${bb}" />
+		<delete dir="${bin}/${filter}" />
+		<mkdir dir="${bin}/${filter}" />
+		<delete dir="${bin}/${bbcode}" />
+		<mkdir dir="${bin}/${bbcode}" />
+		<delete dir="${bin}/${xml}" />
+		<mkdir dir="${bin}/${xml}" />
+		<delete dir="${bin}/${bbel}" />
+		<mkdir dir="${bin}/${bbel}" />
+		<delete dir="${bin}/${obblm}" />
+		<mkdir dir="${bin}/${obblm}" />
+		<delete dir="${bin}/${teameditor}" />
+		<mkdir dir="${bin}/${teameditor}" />
+	</target>
+
+	<!-- Remove all temp directories and/or files-->
+	<target name="clean" depends="init" description="Removes all generated files">
+		<delete>
+			<fileset dir="${bin}" includes="*.class" />
+		</delete>
+	</target>
+
+	<!-- Compile source files -->
+	<target name="compile" depends="init" >
+		<javac srcdir="${src}" encoding="UTF-8" destdir="${bin}" debug="off" includeantruntime="false" />
+	</target>
+
+	<!-- Build JAR files-->
+	<target name="jarIt" depends="compile">
+		<copy todir="${bin}/${bb}">
+			<fileset dir="${src}" casesensitive="yes">
+				<include name="org/tisseursdechimeres/bb/*.properties"/>
+			</fileset>
+		</copy>
+		<copy todir="${bin}/${bb}">
+			<fileset dir="${bin}" casesensitive="yes">
+				<include name="org/tisseursdechimeres/bb/*.class"/>
+			</fileset>
+		</copy>
+		<copy todir="${bin}/${bb}" file="./configuration.xml" />
+		<copy todir="${bin}/${filter}">
+			<fileset dir="${bin}" casesensitive="yes">
+				<include name="org/tisseursdechimeres/bb/filter/*.class"/>
+			</fileset>
+		</copy>
+		<copy todir="${bin}/${bbcode}">
+			<fileset dir="${bin}" casesensitive="yes">
+				<include name="org/tisseursdechimeres/bb/filter/bbcode/*.class"/>
+			</fileset>
+		</copy>
+		<copy todir="${bin}/${bbel}">
+			<fileset dir="${src}" casesensitive="yes">
+				<include name="org/tisseursdechimeres/bb/filter/bbel/*.properties"/>
+				<include name="org/tisseursdechimeres/bb/filter/bbel/*.db"/>
+			</fileset>
+		</copy>
+		<copy todir="${bin}/${bbel}">
+			<fileset dir="${bin}" casesensitive="yes">
+				<include name="org/tisseursdechimeres/bb/filter/bbel/*.class"/>
+			</fileset>
+		</copy>
+		<copy todir="${bin}/${obblm}">
+			<fileset dir="${bin}" casesensitive="yes">
+				<include name="org/tisseursdechimeres/bb/filter/obblm/*.class"/>
+			</fileset>
+		</copy>
+		<copy todir="${bin}/${xml}">
+			<fileset dir="${bin}" casesensitive="yes">
+				<include name="org/tisseursdechimeres/bb/filter/xml/*.class"/>
+			</fileset>
+		</copy>
+		<copy todir="${bin}/${teameditor}">
+			<fileset dir="${src}" casesensitive="yes">
+				<include name="org/tisseursdechimeres/bb/teameditor/*.properties"/>
+			</fileset>
+		</copy>
+		<copy todir="${bin}/${teameditor}">
+			<fileset dir="${bin}" casesensitive="yes">
+				<include name="org/tisseursdechimeres/bb/teameditor/*.class"/>
+			</fileset>
+		</copy>
+		<tstamp><format property="TODAY" pattern="yyyy-MM-dd HH:mm:ss" /></tstamp>
+		<jar jarfile="${dist}/${bb}-${teamEditorVersion}.jar" encoding="UTF-8" basedir="${bin}/${bb}" >
+			<manifest>
+				<!-- Who is building this jar? -->
+				<attribute name="Built-By" value="${user.name}"/>
+				<!-- Information about the program itself -->
+				<attribute name="Implementation-Version"  value="${teamEditorVersion}" /> 
+				<attribute name="Built-Date" value="${TODAY}"/>
+			</manifest>
+		</jar>
+		<jar jarfile="${dist}/${filter}-${teamEditorVersion}.jar" encoding="UTF-8" basedir="${bin}/${filter}" >
+			<manifest>
+				<!-- Who is building this jar? -->
+				<attribute name="Built-By" value="${user.name}"/>
+				<!-- Information about the program itself -->
+				<attribute name="Implementation-Version"  value="${teamEditorVersion}" /> 
+				<attribute name="Built-Date" value="${TODAY}"/>
+			</manifest>
+		</jar>
+		<jar jarfile="${dist}/${bbel}-${teamEditorVersion}.jar" encoding="UTF-8" basedir="${bin}/${bbel}" >
+			<manifest>
+				<!-- Who is building this jar? -->
+				<attribute name="Built-By" value="${user.name}"/>
+				<!-- Information about the program itself -->
+				<attribute name="Implementation-Version"  value="${teamEditorVersion}" /> 
+				<attribute name="Built-Date" value="${TODAY}"/>
+			</manifest>
+		</jar>
+		<jar jarfile="${dist}/${xml}-${teamEditorVersion}.jar" encoding="UTF-8" basedir="${bin}/${xml}" >
+			<manifest>
+				<!-- Who is building this jar? -->
+				<attribute name="Built-By" value="${user.name}"/>
+				<!-- Information about the program itself -->
+				<attribute name="Implementation-Version"  value="${teamEditorVersion}" /> 
+				<attribute name="Built-Date" value="${TODAY}"/>
+			</manifest>
+		</jar>
+		<jar jarfile="${dist}/${bbcode}-${teamEditorVersion}.jar" encoding="UTF-8" basedir="${bin}/${bbcode}" >
+			<manifest>
+				<!-- Who is building this jar? -->
+				<attribute name="Built-By" value="${user.name}"/>
+				<!-- Information about the program itself -->
+				<attribute name="Implementation-Version"  value="${teamEditorVersion}" /> 
+				<attribute name="Built-Date" value="${TODAY}"/>
+			</manifest>
+		</jar>
+		<jar jarfile="${dist}/${obblm}-${teamEditorVersion}.jar" encoding="UTF-8" basedir="${bin}/${obblm}" >
+			<manifest>
+				<!-- Who is building this jar? -->
+				<attribute name="Built-By" value="${user.name}"/>
+				<!-- Information about the program itself -->
+				<attribute name="Implementation-Version"  value="${teamEditorVersion}" /> 
+				<attribute name="Built-Date" value="${TODAY}"/>
+			</manifest>
+		</jar>
+		<jar jarfile="${dist}/${teameditor}-${teamEditorVersion}.jar" encoding="UTF-8" basedir="${bin}/${teameditor}" >
+			<manifest>
+        <!-- Who is building this jar? -->
+        		<attribute name="Built-By" value="${user.name}"/>
+        <!-- Information about the program itself -->
+				<attribute name="Main-Class" value="${teamEditorMainClass}"/>
+				<attribute name="Implementation-Version"  value="${teamEditorVersion}" /> 
+				<attribute name="Built-Date" value="${TODAY}"/>
+        		<attribute name="Class-Path" value="${lib}/sqlitejdbc-v056.jar ${lib}/${bb}-${teamEditorVersion}.jar ${lib}/${filter}-${teamEditorVersion}.jar ${lib}/${bbel}-${teamEditorVersion}.jar ${lib}/${xml}-${teamEditorVersion}.jar ${lib}/${bbcode}-${teamEditorVersion}.jar ${lib}/${obblm}-${teamEditorVersion}.jar" />
+			</manifest>
+		</jar>
+		<copy todir="${lib}">
+			<fileset dir="${dist}" casesensitive="yes">
+					<include name="*.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="./" file="${dist}/TeamEditor-${teamEditorVersion}.jar" />
+	</target>
+</project>

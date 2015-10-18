@@ -1,0 +1,1197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2010  Bertrand MADET
+
+This org.tisseursdechimeres.bb is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This org.tisseursdechimeres.bb is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this org.tisseursdechimeres.bb.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<configuration lrb_edition="6">
+<injury max_number="1" symbol="M" miss_next_game="true" >miss_next_game</injury>
+<injury symbol="N" >niggling</injury>
+<injury max_number="2" mov_malus="1" symbol="Mov_-1" >movement_-1</injury>
+<injury max_number="2" str_malus="1" symbol="Str_-1" >strength_-1</injury>
+<injury max_number="2" ag_malus="1" symbol="Ag_-1" >agility_-1</injury>
+<injury max_number="2" ar_malus="1" symbol="Ar_-1" >armour_-1</injury>
+<skill_category name="Normal">
+	<skill>block</skill>
+	<skill>dauntless</skill>
+	<skill>dirty_player</skill>
+	<skill>fend</skill>
+	<skill>frenzy</skill>
+	<skill>kick</skill>
+	<skill>kick_off_return</skill>
+	<skill>pro</skill>
+	<skill>shadowing</skill>
+	<skill>strip_ball</skill>
+	<skill>sure_hands</skill>
+	<skill>tackle</skill>
+	<skill>wrestle</skill>
+	<skill>pass_block</skill>
+</skill_category>
+<skill_category name="Agility">
+	<skill>catch</skill>
+	<skill>diving_catch</skill>
+	<skill>diving_tackle</skill>
+	<skill>dodge</skill>
+	<skill>jump_up</skill>
+	<skill>leap</skill>
+	<skill>side_step</skill>
+	<skill>sneaky_git</skill>
+	<skill>sprint</skill>
+	<skill>sure_feet</skill>
+</skill_category>
+<skill_category name="Pass">
+	<skill>accurate</skill>
+	<skill>dump_off</skill>
+	<skill>nerves_of_steel</skill>
+	<skill>pass</skill>
+	<skill>safe_throw</skill>
+	<skill>leader</skill>
+</skill_category>
+<skill_category name="Strength">
+	<skill>break_tackle</skill>
+	<skill>grab</skill>
+	<skill>guard</skill>
+	<skill>juggernaught</skill>
+	<skill>mighty_blow</skill>
+	<skill>piling_on</skill>
+	<skill>stand_firm</skill>
+	<skill>strong_arm</skill>
+	<skill>thick_skull</skill>
+</skill_category>
+<skill_category name="Bonus" always_available="true" can_be_gained_twice="true">
+	<skill ag_bonus="1" cost="4">agility_bonus</skill>
+	<skill ar_bonus="1" cost="3">armour_bonus</skill>
+	<skill mov_bonus="1" cost="3">movement_bonus</skill>
+	<skill str_bonus="1" cost="5">strength_bonus</skill>
+</skill_category>
+<skill_category name="Extraordinary">
+	<skill>always_hungry</skill>
+	<skill>animosity</skill>
+	<skill>ball_and_chain</skill>
+	<skill>blood_lust</skill>
+	<skill>bombardier</skill>
+	<skill>bone_head</skill>
+	<skill>chainsaw</skill>
+	<skill>decay</skill>
+	<skill>fan_favorite</skill>
+	<skill>hypnotic_gaze</skill>
+	<skill>loner</skill>
+	<skill>no_hands</skill>
+	<skill>nurgle_s_rot</skill>
+	<skill>really_stupid</skill>
+	<skill>regeneration</skill>
+	<skill>right_stuff</skill>
+	<skill>secret_weapon</skill>
+	<skill>stab</skill>
+	<skill>stakes</skill>
+	<skill>stunty</skill>
+	<skill>take_root</skill>
+	<skill>titchy</skill>
+	<skill>throw_teammate</skill>
+	<skill>wild_animal</skill>
+</skill_category>
+<skill_category name="Mutation">
+	<skill>big_hand</skill>
+	<skill>claws</skill>
+	<skill>disturbing_presence</skill>
+	<skill>extra_arm</skill>
+	<skill>foul_appareance</skill>
+	<skill>horns</skill>
+	<skill>prehensile_tail</skill>
+	<skill>tentacles</skill>
+	<skill>two_heads</skill>
+	<skill>very_long_legs</skill>
+</skill_category>
+<race name="amazon" reroll_cost="5" use_apothicary="1">
+    <position name="linewoman" cost="5" max="16" min="0" mov="6" str="3" ag="3" ar="7">
+      <position_skill name="dodge" />
+      <category_choice is_simple="true" name="Normal" />
+      <category_choice is_simple="false" name="Pass" />
+	  <category_choice is_simple="false" name="Agility" />
+      <category_choice is_simple="false" name="Strength" />
+	</position>
+    <position name="thrower" cost="7" max="2" min="0" mov="6" str="3" ag="3" ar="7">
+      <position_skill name="dodge" />
+      <position_skill name="pass" />
+      <category_choice is_simple="true" name="Normal" />
+      <category_choice is_simple="true" name="Pass" />
+      <category_choice is_simple="false" name="Agility" />
+      <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="catcher" cost="7" max="2" min="0" mov="6" str="3" ag="3" ar="7">
+      <position_skill name="dodge" />
+      <position_skill name="catch" />
+      <category_choice is_simple="true" name="Normal" />
+      <category_choice is_simple="true" name="Agility" />
+      <category_choice is_simple="false" name="Pass" />
+      <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="blitzer" cost="9" max="4" min="0" mov="6" str="3" ag="3" ar="7">
+      <position_skill name="block" />
+      <position_skill name="dodge" />
+      <category_choice is_simple="true" name="Normal" />
+      <category_choice is_simple="true" name="Strength" />
+      <category_choice is_simple="false" name="Agility" />
+      <category_choice is_simple="false" name="Pass" />
+    </position>
+	<position name="journeyman" cost="5" max="11" min="0" mov="6" str="3" ag="3" ar="7">
+      <position_skill name="loner" />
+      <position_skill name="dodge" />
+	</position>
+</race>
+<race name="chaos" reroll_cost="6" use_apothicary="1">
+    <position name="beastman" cost="6" max="16" min="0" mov="6" str="3" ag="3" ar="8">
+        <position_skill name="horns" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="true" name="Mutation" />
+        <category_choice is_simple="true" name="Strength" />
+        <category_choice is_simple="false" name="Agility" />
+        <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="chaos_warrior" cost="10" max="4" min="0" mov="5" str="4" ag="3" ar="9">
+      <category_choice is_simple="true" name="Normal" />
+      <category_choice is_simple="true" name="Strength" />
+      <category_choice is_simple="true" name="Mutation" />
+      <category_choice is_simple="false" name="Pass" />
+      <category_choice is_simple="false" name="Agility" />
+    </position>
+    <position name="minotaur" cost="15" max="1" min="0" mov="5" str="5" ag="2" ar="8">
+      <position_skill name="loner" />
+      <position_skill name="wild_animal" />
+      <position_skill name="thick_skull" />
+      <position_skill name="mighty_blow" />
+      <position_skill name="frenzy" />
+      <position_skill name="horns" />
+      <category_choice is_simple="true" name="Strength" />
+      <category_choice is_simple="false" name="Normal" />
+      <category_choice is_simple="false" name="Agility" />
+      <category_choice is_simple="false" name="Pass" />
+      <category_choice is_simple="true" name="Mutation" />
+    </position>
+	<position name="journeyman" cost="6" max="11" min="0" mov="6" str="3" ag="3" ar="8">
+      <position_skill name="loner" />
+      <position_skill name="horns" />
+    </position>
+</race>
+<race name="chaos_dwarf" reroll_cost="7" use_apothicary="1">
+	<position name="hobgoblin" cost="4" max="16" min="0" mov="6" str="3" ag="3" ar="7">
+		<category_choice is_simple="true" name="Normal" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+		<category_choice is_simple="false" name="Strength" />
+	</position>
+	<position name="chaos_dwarf_blocker" cost="7" max="6" min="0" mov="4" str="3" ag="2" ar="9">
+		<position_skill name="block" />
+		<position_skill name="tackle" />
+		<position_skill name="thick_skull" />
+		<category_choice is_simple="true" name="Normal" />
+		<category_choice is_simple="true" name="Strength" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+		<category_choice is_simple="false" name="Mutation" />
+	</position>
+	<position name="bull_centaur" cost="13" max="2" min="0" mov="6" str="4" ag="2" ar="9">
+		<position_skill name="sure_feet" />
+		<position_skill name="sprint" />
+		<position_skill name="thick_skull" />
+		<category_choice is_simple="true" name="Strength" />
+  		<category_choice is_simple="true" name="Normal" />
+		<category_choice is_simple="false" name="Pass" />
+		<category_choice is_simple="false" name="Agility" />
+	</position>
+	<position name="minotaur" cost="15" max="1" min="0" mov="5" str="5" ag="2" ar="8">
+		<position_skill name="loner" />
+		<position_skill name="wild_animal" />
+		<position_skill name="thick_skull" />
+		<position_skill name="mighty_blow" />
+		<position_skill name="frenzy" />
+		<position_skill name="horns" />
+		<category_choice is_simple="true" name="Strength" />
+		<category_choice is_simple="false" name="Normal" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+		<category_choice is_simple="false" name="Mutation" />
+	</position>
+	<position name="journeyman" cost="4" max="11" min="0" mov="6" str="3" ag="3" ar="7">
+		<position_skill name="loner" />
+	</position>
+</race>
+<race name="dark_elf" reroll_cost="5" use_apothicary="1">
+    <position name="lineman" cost="7" max="16" min="0" mov="6" str="3" ag="4" ar="8">
+      <category_choice is_simple="true" name="Normal" />
+      <category_choice is_simple="true" name="Agility" />
+      <category_choice is_simple="false" name="Strength" />
+      <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="runner" cost="8" max="2" min="0" mov="6" str="3" ag="4" ar="8">
+      <position_skill name="dump_off" />
+      <category_choice is_simple="true" name="Normal" />
+      <category_choice is_simple="true" name="Pass" />
+      <category_choice is_simple="true" name="Agility" />
+      <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="assassin" cost="9" max="2" min="0" mov="6" str="3" ag="4" ar="7">
+      <position_skill name="shadowing" />
+      <position_skill name="stab" />
+      <category_choice is_simple="true" name="Agility" /> 
+      <category_choice is_simple="true" name="Normal" />
+      <category_choice is_simple="false" name="Pass" />
+      <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="blitzer" cost="10" max="4" min="0" mov="7" str="3" ag="4" ar="8">
+      <position_skill name="block" />
+      <category_choice is_simple="true" name="Agility" />
+      <category_choice is_simple="true" name="Normal" />
+      <category_choice is_simple="false" name="Strength" />
+      <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="witch" cost="11" max="2" min="0" mov="7" str="3" ag="4" ar="7">
+      <position_skill name="dodge" />
+      <position_skill name="frenzy" />
+      <position_skill name="jump_up" />
+      <category_choice is_simple="true" name="Agility" />
+      <category_choice is_simple="true" name="Normal" />
+      <category_choice is_simple="false" name="Strength" />
+      <category_choice is_simple="false" name="Pass" />
+    </position>
+	<position name="journeyman" cost="7" max="11" min="0" mov="6" str="3" ag="4" ar="8">
+	  <position_skill name="loner" />
+	</position>
+</race>
+<race name="dwarf" reroll_cost="5" use_apothicary="1">
+    <position name="blocker" cost="7" max="16" min="0" mov="4" str="3" ag="2" ar="9">
+      <position_skill name="block" />
+      <position_skill name="tackle" />
+      <position_skill name="thick_skull" />
+      <category_choice is_simple="true" name="Normal" />
+      <category_choice is_simple="true" name="Strength" />
+      <category_choice is_simple="false" name="Agility" />
+      <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="runner" cost="8" max="2" min="0" mov="6" str="3" ag="3" ar="8">
+        <position_skill name="sure_hands" />
+        <position_skill name="thick_skull" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="true" name="Pass" />
+        <category_choice is_simple="false" name="Agility" />
+        <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="blitzer" cost="8" max="2" min="0" mov="5" str="3" ag="3" ar="9">
+        <position_skill name="block" />
+        <position_skill name="thick_skull" />
+        <category_choice is_simple="true" name="Strength" /> 
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="false" name="Agility" />
+    </position>
+    <position name="troll_slayer" cost="9" max="2" min="0" mov="5" str="3" ag="2" ar="8">
+        <position_skill name="block" />
+        <position_skill name="dauntless" />
+        <position_skill name="frenzy" />
+        <position_skill name="thick_skull" />
+        <category_choice is_simple="true" name="Strength" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="false" name="Agility" />
+        <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="deathroller" cost="16" max="1" min="0" mov="4" str="7" ag="1" ar="10">
+        <position_skill name="loner" />
+        <position_skill name="break_tackle" />
+        <position_skill name="dirty_player" />
+        <position_skill name="juggernaught" />
+        <position_skill name="mighty_blow" />
+        <position_skill name="no_hands" />
+        <position_skill name="secret_weapon" />
+        <position_skill name="stand_firm" />
+        <category_choice is_simple="true" name="Strength" />
+        <category_choice is_simple="false" name="Normal" />
+        <category_choice is_simple="false" name="Agility" />
+        <category_choice is_simple="false" name="Pass" />
+    </position>
+	<position name="journeyman" cost="7" max="11" min="0" mov="4" str="3" ag="2" ar="9">
+	  <position_skill name="block" />
+      <position_skill name="tackle" />
+      <position_skill name="thick_skull" />
+	  <position_skill name="loner" />
+	</position>
+</race>
+<race name="elf" reroll_cost="5" use_apothicary="1">
+    <position name="lineman" cost="6" max="16" min="0" mov="6" str="3" ag="4" ar="7">
+            <category_choice is_simple="true" name="Normal" />
+            <category_choice is_simple="true" name="Agility" />
+            <category_choice is_simple="false" name="Strength" />
+            <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="thrower" cost="7" max="2" min="0" mov="6" str="3" ag="4" ar="7">
+        <position_skill name="pass" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="true" name="Pass" />
+        <category_choice is_simple="false" name="Agility" />
+        <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="catcher" cost="10" max="4" min="0" mov="8" str="3" ag="4" ar="7">
+        <position_skill name="catch" />
+        <position_skill name="nerves_of_steel" />
+        <category_choice is_simple="true" name="Agility" /> 
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="blitzer" cost="11" max="2" min="0" mov="7" str="3" ag="4" ar="8">
+        <position_skill name="block" />
+        <position_skill name="side_step" />
+        <category_choice is_simple="true" name="Agility" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="false" name="Strength" />
+        <category_choice is_simple="false" name="Pass" />
+    </position>
+	<position name="journeyman" cost="6" max="11" min="0" mov="6" str="3" ag="4" ar="7">
+	  <position_skill name="loner" />
+	</position>
+</race>
+<race name="goblin" reroll_cost="6" use_apothicary="1">
+  <position name="goblin" cost="4" max="16" min="0" mov="6" str="2" ag="3" ar="7">
+    <position_skill name="dodge" />
+    <position_skill name="stunty" />
+    <position_skill name="right_stuff" />
+    <category_choice is_simple="false" name="Normal" />
+    <category_choice is_simple="true" name="Agility" />
+    <category_choice is_simple="false" name="Strength" />
+    <category_choice is_simple="false" name="Pass" />
+  </position>
+  <position name="bombardier" cost="4" max="1" min="0" mov="6" str="2" ag="3" ar="7">
+    <position_skill name="dodge" />
+    <position_skill name="stunty" />
+    <position_skill name="secret_weapon" />
+    <position_skill name="bombardier" />
+    <category_choice is_simple="false" name="Normal" />
+    <category_choice is_simple="true" name="Agility" />
+    <category_choice is_simple="false" name="Strength" />
+    <category_choice is_simple="false" name="Pass" />
+  </position>
+  <position name="loney" cost="4" max="1" min="0" mov="6" str="2" ag="3" ar="7">
+    <position_skill name="stunty" />
+    <position_skill name="secret_weapon" />
+    <position_skill name="chainsaw" />
+    <category_choice is_simple="false" name="Normal" />
+    <category_choice is_simple="true" name="Agility" />
+    <category_choice is_simple="false" name="Strength" />
+    <category_choice is_simple="false" name="Pass" />
+  </position>
+  <position name="fanatic" cost="7" max="1" min="0" mov="3" str="7" ag="3" ar="7">
+    <position_skill name="stunty" />
+    <position_skill name="secret_weapon" />
+    <position_skill name="ball_and_chain" />
+    <position_skill name="no_hands" />
+    <category_choice is_simple="false" name="Normal" />
+    <category_choice is_simple="false" name="Agility" />
+    <category_choice is_simple="true" name="Strength" />
+    <category_choice is_simple="false" name="Pass" />
+  </position>
+  <position name="pogoer" cost="7" max="1" min="0" mov="7" str="2" ag="3" ar="7">
+    <position_skill name="stunty" />
+    <position_skill name="dodge" />
+    <position_skill name="leap" />
+    <position_skill name="very_long_legs" />
+    <category_choice is_simple="false" name="Normal" />
+    <category_choice is_simple="true" name="Agility" />
+    <category_choice is_simple="false" name="Strength" />
+    <category_choice is_simple="false" name="Pass" />
+  </position>
+  <position name="troll" cost="11" max="2" min="0" mov="4" str="5" ag="1" ar="9">
+		<position_skill name="loner" />
+		<position_skill name="really_stupid" />
+		<position_skill name="always_hungry" />
+		<position_skill name="mighty_blow" />
+		<position_skill name="regeneration" />
+		<position_skill name="throw_teammate" />
+		<category_choice is_simple="true" name="Strength" />
+		<category_choice is_simple="false" name="Normal" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+	</position>
+	<position name="journeyman" cost="4" max="11" min="0" mov="6" str="2" ag="3" ar="7">
+	  <position_skill name="loner" />
+	  <position_skill name="dodge" />
+      <position_skill name="stunty" />
+	  <position_skill name="right_stuff" />
+	</position>
+</race>
+<race name="halfling" reroll_cost="6" use_apothicary="1">
+    <position name="halfling" cost="3" max="16" min="0" mov="5" str="2" ag="3" ar="6">
+        <position_skill name="dodge" />
+        <position_skill name="stunty" />
+        <position_skill name="right_stuff" />
+            <category_choice is_simple="false" name="Normal" />
+            <category_choice is_simple="true" name="Agility" />
+            <category_choice is_simple="false" name="Strength" />
+            <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="treeman" cost="12" max="2" min="0" mov="2" str="6" ag="1" ar="10">
+        <position_skill name="stand_firm" />
+        <position_skill name="throw_teammate" />
+        <position_skill name="mighty_blow" />
+        <position_skill name="strong_arm" />
+        <position_skill name="thick_skull" />
+        <position_skill name="take_root" />
+        <category_choice is_simple="false" name="Agility" /> 
+        <category_choice is_simple="false" name="Normal" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="true" name="Strength" />
+    </position>
+	<position name="journeyman" cost="3" max="11" min="0" mov="5" str="2" ag="3" ar="6">
+	  <position_skill name="loner" />
+	  <position_skill name="dodge" />
+      <position_skill name="stunty" />
+	  <position_skill name="right_stuff" />
+	</position>
+</race>
+<race name="high_elf" reroll_cost="5" use_apothicary="1">
+    <position name="lineman" cost="7" max="16" min="0" mov="6" str="3" ag="4" ar="8">
+            <category_choice is_simple="true" name="Normal" />
+            <category_choice is_simple="true" name="Agility" />
+            <category_choice is_simple="false" name="Strength" />
+            <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="thrower" cost="9" max="2" min="0" mov="6" str="3" ag="4" ar="8">
+        <position_skill name="pass" />
+        <position_skill name="safe_throw" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="true" name="Pass" />
+        <category_choice is_simple="true" name="Agility" />
+        <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="catcher" cost="9" max="4" min="0" mov="8" str="3" ag="4" ar="7">
+        <position_skill name="catch" />
+        <category_choice is_simple="true" name="Agility" /> 
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="blitzer" cost="10" max="2" min="0" mov="7" str="3" ag="4" ar="8">
+        <position_skill name="block" />
+        <category_choice is_simple="true" name="Agility" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="false" name="Strength" />
+        <category_choice is_simple="false" name="Pass" />
+    </position>
+	<position name="journeyman" cost="7" max="11" min="0" mov="6" str="3" ag="4" ar="8">
+	  <position_skill name="loner" />
+	</position>
+</race>
+<race name="human" reroll_cost="5" use_apothicary="1">
+	<position name="lineman" cost="5" max="16" min="0" mov="6" str="3" ag="3" ar="8">
+		<category_choice is_simple="true" name="Normal" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+		<category_choice is_simple="false" name="Strength" />
+	</position>
+	<position name="thrower" cost="7" max="2" min="0" mov="6" str="3" ag="3" ar="8">
+			<position_skill name="sure_hands" />
+			<position_skill name="pass" />
+			<category_choice is_simple="true" name="Normal" />
+			<category_choice is_simple="true" name="Pass" />
+			<category_choice is_simple="false" name="Agility" />
+			<category_choice is_simple="false" name="Strength" />
+	</position>
+	<position name="catcher" cost="7" max="4" min="0" mov="8" str="2" ag="3" ar="7">
+		<position_skill name="dodge" />
+		<position_skill name="catch" />
+			<category_choice is_simple="true" name="Normal" />
+			<category_choice is_simple="true" name="Agility" />
+			<category_choice is_simple="false" name="Pass" />
+			<category_choice is_simple="false" name="Strength" />
+	</position>
+	<position name="blitzer" cost="9" max="4" min="0" mov="7" str="3" ag="3" ar="8">
+		<position_skill name="block" />
+			<category_choice is_simple="true" name="Normal" />
+			<category_choice is_simple="true" name="Strength" />
+			<category_choice is_simple="false" name="Agility" />
+			<category_choice is_simple="false" name="Pass" />
+	</position>
+  <position name="ogre" cost="14" max="1" min="0" mov="5" str="5" ag="2" ar="9">
+		<position_skill name="bone_head" />
+		<position_skill name="loner" />
+		<position_skill name="mighty_blow" />
+		<position_skill name="thick_skull" />
+		<position_skill name="throw_teammate" />
+		<category_choice is_simple="true" name="Strength" />
+		<category_choice is_simple="false" name="Normal" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+	</position>
+	<position name="journeyman" cost="5" max="11" min="0" mov="6" str="3" ag="3" ar="8">
+	  <position_skill name="loner" />
+	</position>
+</race>
+<race name="khemri" reroll_cost="7" use_apothicary="0">
+	<position name="skeleton" cost="4" max="16" min="0" mov="5" str="3" ag="2" ar="7">
+	  <position_skill name="regeneration" />
+      <position_skill name="thick_skull" />
+      <category_choice is_simple="true" name="Normal" />
+	  <category_choice is_simple="false" name="Agility" />
+	  <category_choice is_simple="false" name="Pass" />
+	  <category_choice is_simple="false" name="Strength" />
+	</position>
+	<position name="thro_ra" cost="7" max="2" min="0" mov="6" str="3" ag="2" ar="7">
+			<position_skill name="regeneration" />
+      <position_skill name="sure_hands" />
+			<position_skill name="pass" />
+			<category_choice is_simple="true" name="Normal" />
+			<category_choice is_simple="true" name="Pass" />
+			<category_choice is_simple="false" name="Agility" />
+			<category_choice is_simple="false" name="Strength" />
+	</position>
+	<position name="blitz_ra" cost="9" max="2" min="0" mov="6" str="3" ag="2" ar="8">
+		<position_skill name="regeneration" />
+    <position_skill name="block" />
+		<category_choice is_simple="true" name="Normal" />
+		<category_choice is_simple="true" name="Strength" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+	</position>
+	<position name="tomb_guardian" cost="10" max="4" min="0" mov="4" str="5" ag="1" ar="9">
+		<position_skill name="regeneration" />
+		<position_skill name="decay" />
+		<category_choice is_simple="true" name="Strength" />
+		<category_choice is_simple="false" name="Normal" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+	</position>
+	<position name="journeyman" cost="4" max="11" min="0" mov="5" str="3" ag="2" ar="7">
+	  <position_skill name="loner" />
+	  <position_skill name="regeneration" />
+	  <position_skill name="thick_skull" />
+	</position>
+</race>
+<race name="lizardman" reroll_cost="6" use_apothicary="1">
+    <position name="skink" cost="6" max="16" min="0" mov="8" str="2" ag="3" ar="7">
+      <position_skill name="dodge" />
+      <position_skill name="stunty" />
+      <category_choice is_simple="false" name="Normal" />
+      <category_choice is_simple="true" name="Agility" />
+      <category_choice is_simple="false" name="Strength" />
+      <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="saurus" cost="8" max="6" min="0" mov="6" str="4" ag="1" ar="9">
+      <category_choice is_simple="true" name="Normal" />
+      <category_choice is_simple="false" name="Pass" />
+      <category_choice is_simple="false" name="Agility" />
+      <category_choice is_simple="true" name="Strength" />
+    </position>
+    <position name="kroxigor" cost="14" max="1" min="0" mov="6" str="5" ag="1" ar="9">
+      <position_skill name="loner" />
+      <position_skill name="bone_head" />
+      <position_skill name="mighty_blow" />
+      <position_skill name="prehensile_tail" />
+      <position_skill name="thick_skull" />
+      <category_choice is_simple="false" name="Agility" /> 
+      <category_choice is_simple="false" name="Normal" />
+      <category_choice is_simple="false" name="Pass" />
+      <category_choice is_simple="true" name="Strength" />
+    </position>
+	<position name="journeyman" cost="6" max="11" min="0" mov="8" str="2" ag="3" ar="7">
+	  <position_skill name="loner" />
+	  <position_skill name="dodge" />
+      <position_skill name="stunty" />
+	</position>
+</race>
+<race name="necromantic" reroll_cost="7" use_apothicary="0">
+	<position name="zombie" cost="4" max="16" min="0" mov="4" str="3" ag="2" ar="8">
+	  <position_skill name="regeneration" />
+      <category_choice is_simple="true" name="Normal" />
+	  <category_choice is_simple="false" name="Agility" />
+	  <category_choice is_simple="false" name="Pass" />
+	  <category_choice is_simple="false" name="Strength" />
+	</position>
+	<position name="ghoul" cost="7" max="2" min="0" mov="7" str="3" ag="3" ar="7">
+	  <position_skill name="dodge" />
+	  <category_choice is_simple="true" name="Normal" />
+	  <category_choice is_simple="true" name="Agility" />
+	  <category_choice is_simple="false" name="Pass" />
+	  <category_choice is_simple="false" name="Strength" />
+	</position>
+	<position name="wight" cost="9" max="2" min="0" mov="6" str="3" ag="3" ar="8">
+	  <position_skill name="regeneration" />
+      <position_skill name="block" />
+	  <category_choice is_simple="true" name="Normal" />
+	  <category_choice is_simple="true" name="Strength" />
+	  <category_choice is_simple="false" name="Agility" />
+	  <category_choice is_simple="false" name="Pass" />
+	</position>
+  <position name="flesh_golem" cost="10" max="2" min="0" mov="4" str="4" ag="2" ar="9">
+	  <position_skill name="regeneration" />
+	  <position_skill name="thick_skull" />
+	  <position_skill name="stand_firm" />
+	  <category_choice is_simple="true" name="Normal" />
+	  <category_choice is_simple="true" name="Strength" />
+	  <category_choice is_simple="false" name="Agility" />
+	  <category_choice is_simple="false" name="Pass" />
+	</position>
+  <position name="werewolf" cost="12" max="2" min="0" mov="8" str="3" ag="3" ar="8">
+	  <position_skill name="regeneration" />
+      <position_skill name="frenzy" />
+      <position_skill name="claws" />
+	  <category_choice is_simple="true" name="Normal" />
+	  <category_choice is_simple="false" name="Strength" />
+	  <category_choice is_simple="true" name="Agility" />
+	  <category_choice is_simple="false" name="Pass" />
+	</position>
+	<position name="journeyman" cost="4" max="11" min="0" mov="4" str="3" ag="2" ar="8">
+	  <position_skill name="loner" />
+	  <position_skill name="regeneration" />
+	</position>
+</race>
+<race name="norse" reroll_cost="6" use_apothicary="1">
+    <position name="lineman" cost="5" max="16" min="0" mov="6" str="3" ag="3" ar="7">
+        <position_skill name="block" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="false" name="Agility" />
+        <category_choice is_simple="false" name="Strength" />
+        <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="thrower" cost="7" max="2" min="0" mov="6" str="3" ag="3" ar="7">
+        <position_skill name="pass" />
+        <position_skill name="block" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="true" name="Pass" />
+        <category_choice is_simple="false" name="Agility" />
+        <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="catcher" cost="9" max="2" min="0" mov="7" str="3" ag="3" ar="7">
+        <position_skill name="block" />
+        <position_skill name="dauntless" />
+        <category_choice is_simple="true" name="Agility" /> 
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="blitzer" cost="9" max="2" min="0" mov="6" str="3" ag="3" ar="7">
+        <position_skill name="block" />
+        <position_skill name="frenzy" />
+        <position_skill name="jump_up" />
+        <category_choice is_simple="false" name="Agility" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="true" name="Strength" />
+        <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="ulfwerener" cost="11" max="2" min="0" mov="6" str="4" ag="2" ar="8">
+        <position_skill name="frenzy" />
+        <category_choice is_simple="false" name="Agility" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="true" name="Strength" />
+        <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="snow_troll" cost="14" max="1" min="0" mov="5" str="5" ag="1" ar="8">
+        <position_skill name="loner" />
+        <position_skill name="claws" />
+        <position_skill name="disturbing_presence" />
+        <position_skill name="frenzy" />
+        <position_skill name="wild_animal" />
+        <category_choice is_simple="false" name="Agility" /> 
+        <category_choice is_simple="false" name="Normal" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="true" name="Strength" />
+    </position>
+	<position name="journeyman" cost="5" max="11" min="0" mov="6" str="3" ag="3" ar="7">
+	  <position_skill name="loner" />
+	  <position_skill name="block" />
+	</position>
+</race>
+<race name="nurgle" reroll_cost="7" use_apothicary="1">
+  <position name="rotter" cost="4" max="16" min="0" mov="5" str="3" ag="3" ar="8">
+    <position_skill name="decay" />
+    <position_skill name="nurgle_s_rot" />
+    <category_choice is_simple="true" name="Normal" />
+    <category_choice is_simple="false" name="Agility" />
+    <category_choice is_simple="true" name="Strength" />
+    <category_choice is_simple="false" name="Pass" />
+    <category_choice is_simple="true" name="Mutation" />
+  </position>
+  <position name="pestigor" cost="8" max="4" min="0" mov="6" str="3" ag="3" ar="8">
+    <position_skill name="horns" />
+    <position_skill name="regeneration" />
+    <position_skill name="nurgle_s_rot" />
+    <category_choice is_simple="true" name="Normal" />
+    <category_choice is_simple="false" name="Pass" />
+    <category_choice is_simple="false" name="Agility" />
+    <category_choice is_simple="true" name="Strength" />
+    <category_choice is_simple="true" name="Mutation" />
+  </position>
+  <position name="nurgle_warrior" cost="11" max="4" min="0" mov="4" str="4" ag="2" ar="9">
+    <position_skill name="foul_appareance" />
+    <position_skill name="disturbing_presence" />
+    <position_skill name="regeneration" />
+    <position_skill name="nurgle_s_rot" />
+    <category_choice is_simple="true" name="Normal" />
+    <category_choice is_simple="false" name="Pass" />
+    <category_choice is_simple="false" name="Agility" />
+    <category_choice is_simple="true" name="Strength" />
+    <category_choice is_simple="true" name="Mutation" />
+  </position>
+  <position name="beast_of_nurgle" cost="14" max="1" min="0" mov="4" str="5" ag="1" ar="9">
+    <position_skill name="loner" />
+    <position_skill name="really_stupid" />
+    <position_skill name="mighty_blow" />
+    <position_skill name="foul_appareance" />
+    <position_skill name="disturbing_presence" />
+    <position_skill name="regeneration" />
+    <position_skill name="nurgle_s_rot" />
+    <position_skill name="tentacles" />
+    <category_choice is_simple="false" name="Agility" /> 
+    <category_choice is_simple="false" name="Normal" />
+    <category_choice is_simple="false" name="Pass" />
+    <category_choice is_simple="true" name="Strength" />
+    <category_choice is_simple="false" name="Mutation" />
+  </position>
+  <position name="journeyman" cost="4" max="11" min="0" mov="5" str="3" ag="3" ar="8">
+	<position_skill name="loner" />
+    <position_skill name="decay" />
+    <position_skill name="nurgle_s_rot" />
+  </position>
+</race>
+<race name="ogre" reroll_cost="5" use_apothicary="1">
+  <position name="snotling" cost="3" max="16" min="0" mov="5" str="1" ag="3" ar="6">
+    <position_skill name="dodge" />
+    <position_skill name="stunty" />
+    <position_skill name="right_stuff" />
+    <position_skill name="side_step" />
+    <position_skill name="titchy" />
+	<category_choice is_simple="false" name="Normal" />
+	<category_choice is_simple="true" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+	<category_choice is_simple="false" name="Strength" />
+  </position>
+  <position name="ogre" cost="14" max="6" min="0" mov="5" str="5" ag="2" ar="9">
+	<position_skill name="bone_head" />
+	<position_skill name="loner" />
+	<position_skill name="mighty_blow" />
+	<position_skill name="thick_skull" />
+	<position_skill name="throw_teammate" />
+	<category_choice is_simple="true" name="Strength" />
+	<category_choice is_simple="false" name="Normal" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+  </position>
+  <position name="journeyman" cost="3" max="11" min="0" mov="5" str="1" ag="3" ar="6">
+	<position_skill name="loner" />
+    <position_skill name="dodge" />
+    <position_skill name="stunty" />
+    <position_skill name="right_stuff" />
+    <position_skill name="side_step" />
+    <position_skill name="titchy" />
+  </position>
+</race>
+<race name="orc" reroll_cost="6" use_apothicary="1">
+  <position name="lineman" cost="5" max="16" min="0" mov="5" str="3" ag="3" ar="9">
+	<category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+	<category_choice is_simple="false" name="Strength" />
+  </position>
+  <position name="thrower" cost="7" max="2" min="0" mov="5" str="3" ag="3" ar="8">
+	<position_skill name="sure_hands" />
+	<position_skill name="pass" />
+	<category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="true" name="Pass" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Strength" />
+  </position>
+  <position name="goblin" cost="4" max="4" min="0" mov="6" str="2" ag="3" ar="7">
+	<position_skill name="dodge" />
+	<position_skill name="stunty" />
+  	<position_skill name="right_stuff" />
+	<category_choice is_simple="true" name="Agility" />
+  	<category_choice is_simple="false" name="Normal" />
+	<category_choice is_simple="false" name="Pass" />
+	<category_choice is_simple="false" name="Strength" />
+  </position>
+  <position name="black_orc" cost="8" max="4" min="0" mov="4" str="4" ag="2" ar="9">
+	<category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="true" name="Strength" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+  </position>
+  <position name="blitzer" cost="8" max="4" min="0" mov="6" str="3" ag="3" ar="9">
+	<position_skill name="block" />
+	<category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="true" name="Strength" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+  </position>
+  <position name="troll" cost="11" max="1" min="0" mov="4" str="5" ag="1" ar="9">
+	<position_skill name="loner" />
+	<position_skill name="really_stupid" />
+	<position_skill name="always_hungry" />
+	<position_skill name="mighty_blow" />
+	<position_skill name="regeneration" />
+	<position_skill name="throw_teammate" />
+	<category_choice is_simple="true" name="Strength" />
+	<category_choice is_simple="false" name="Normal" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+  </position>
+  <position name="journeyman" cost="5" max="11" min="0" mov="5" str="3" ag="3" ar="9">
+	<position_skill name="loner" />
+  </position>
+</race>
+<race name="skaven" reroll_cost="6" use_apothicary="1">
+  <position name="lineman" cost="5" max="16" min="0" mov="7" str="3" ag="3" ar="7">
+	<category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+	<category_choice is_simple="false" name="Strength" />
+	<category_choice is_simple="false" name="Mutation" />
+  </position>
+  <position name="thrower" cost="7" max="2" min="0" mov="7" str="3" ag="3" ar="7">
+	<position_skill name="sure_hands" />
+	<position_skill name="pass" />
+	<category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="true" name="Pass" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Strength" />
+	<category_choice is_simple="false" name="Mutation" />
+  </position>
+  <position name="gutter_runner" cost="8" max="4" min="0" mov="9" str="2" ag="4" ar="7">
+	<position_skill name="dodge" />
+	<category_choice is_simple="true" name="Agility" />
+  	<category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="false" name="Pass" />
+	<category_choice is_simple="false" name="Strength" />
+	<category_choice is_simple="false" name="Mutation" />
+  </position>
+  <position name="storm_vermin" cost="9" max="4" min="0" mov="7" str="3" ag="3" ar="8">
+	<position_skill name="block" />
+	<category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="true" name="Strength" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+	<category_choice is_simple="false" name="Mutation" />
+  </position>
+  <position name="rat_ogre" cost="15" max="1" min="0" mov="6" str="5" ag="2" ar="8">
+	<position_skill name="loner" />
+	<position_skill name="wild_animal" />
+	<position_skill name="always_hungry" />
+	<position_skill name="mighty_blow" />
+	<position_skill name="frenzy" />
+	<position_skill name="prehensile_tail" />
+	<category_choice is_simple="true" name="Strength" />
+	<category_choice is_simple="false" name="Normal" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+	<category_choice is_simple="false" name="Mutation" />
+  </position>
+  <position name="journeyman" cost="5" max="11" min="0" mov="7" str="3" ag="3" ar="7">
+	<position_skill name="loner" />
+  </position>
+</race>
+<race name="undead" reroll_cost="7" use_apothicary="0">
+  <position name="skeleton" cost="4" max="16" min="0" mov="5" str="3" ag="2" ar="7">
+	<position_skill name="regeneration" />
+    <position_skill name="thick_skull" />
+    <category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+	<category_choice is_simple="false" name="Strength" />
+  </position>
+  <position name="zombie" cost="4" max="16" min="0" mov="4" str="3" ag="2" ar="8">
+	<position_skill name="regeneration" />
+    <category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+	<category_choice is_simple="false" name="Strength" />
+  </position>
+  <position name="ghoul" cost="7" max="4" min="0" mov="7" str="3" ag="3" ar="7">
+	<position_skill name="dodge" />
+	<category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="true" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+	<category_choice is_simple="false" name="Strength" />
+  </position>
+  <position name="wight" cost="9" max="2" min="0" mov="6" str="3" ag="3" ar="8">
+	<position_skill name="regeneration" />
+    <position_skill name="block" />
+	<category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="true" name="Strength" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+  </position>
+  <position name="mummy" cost="12" max="2" min="0" mov="3" str="5" ag="1" ar="9">
+	<position_skill name="regeneration" />
+    <position_skill name="mighty_blow" />
+	<category_choice is_simple="false" name="Normal" />
+	<category_choice is_simple="true" name="Strength" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+  </position>
+  <position name="journeyman" cost="4" max="11" min="0" mov="5" str="3" ag="2" ar="7">
+	<position_skill name="loner" />
+	<position_skill name="regeneration" />
+    <position_skill name="thick_skull" />
+  </position>
+</race>
+<race name="vampire" reroll_cost="7" use_apothicary="1">
+  <position name="thrall" cost="4" max="16" min="0" mov="6" str="3" ag="3" ar="7">
+    <category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="false" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+	<category_choice is_simple="false" name="Strength" />
+  </position>
+  <position name="vampire" cost="11" max="6" min="0" mov="6" str="4" ag="4" ar="8">
+	<position_skill name="regeneration" />
+    <position_skill name="hypnotic_gaze" />
+    <position_skill name="blood_lust" />
+	<category_choice is_simple="true" name="Normal" />
+	<category_choice is_simple="true" name="Strength" />
+	<category_choice is_simple="true" name="Agility" />
+	<category_choice is_simple="false" name="Pass" />
+  </position>
+	<position name="journeyman" cost="4" max="11" min="0" mov="6" str="3" ag="3" ar="7">
+	<position_skill name="loner" />
+  </position>
+</race>
+<race name="wood_elf" reroll_cost="5" use_apothicary="1">
+    <position name="lineman" cost="7" max="16" min="0" mov="7" str="3" ag="4" ar="7">
+            <category_choice is_simple="true" name="Normal" />
+            <category_choice is_simple="true" name="Agility" />
+            <category_choice is_simple="false" name="Strength" />
+            <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="thrower" cost="9" max="2" min="0" mov="7" str="3" ag="4" ar="7">
+        <position_skill name="pass" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="true" name="Pass" />
+        <category_choice is_simple="true" name="Agility" />
+        <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="catcher" cost="9" max="4" min="0" mov="8" str="2" ag="4" ar="7">
+        <position_skill name="catch" />
+        <position_skill name="dodge" />
+        <position_skill name="sprint" />
+        <category_choice is_simple="true" name="Agility" /> 
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="false" name="Strength" />
+    </position>
+    <position name="wardancer" cost="12" max="2" min="0" mov="8" str="3" ag="4" ar="7">
+        <position_skill name="block" />
+        <position_skill name="dodge" />
+        <position_skill name="leap" />
+        <category_choice is_simple="true" name="Agility" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="false" name="Strength" />
+        <category_choice is_simple="false" name="Pass" />
+    </position>
+    <position name="treeman" cost="12" max="2" min="0" mov="2" str="6" ag="1" ar="10">
+        <position_skill name="stand_firm" />
+        <position_skill name="throw_teammate" />
+        <position_skill name="mighty_blow" />
+        <position_skill name="strong_arm" />
+        <position_skill name="thick_skull" />
+        <position_skill name="take_root" />
+        <category_choice is_simple="false" name="Agility" /> 
+        <category_choice is_simple="false" name="Normal" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="true" name="Strength" />
+    </position>
+	<position name="journeyman" cost="7" max="11" min="0" mov="7" str="3" ag="4" ar="7">
+		<position_skill name="loner" />
+	</position>
+</race>
+<race name="chaos_pact" reroll_cost="7" use_apothicary="1">
+    <position name="marauder" cost="5" max="16" min="0" mov="6" str="3" ag="3" ar="8">
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="false" name="Agility" />
+        <category_choice is_simple="true" name="Strength" />
+        <category_choice is_simple="true" name="Pass" />
+	    <category_choice is_simple="true" name="Mutation" />
+    </position>
+	<position name="goblin_renegade" cost="4" max="1" min="0" mov="6" str="2" ag="3" ar="7">
+		<position_skill name="dodge" />
+        <position_skill name="right_stuff" />
+        <position_skill name="stunty" />
+		<position_skill name="animosity" />
+        <category_choice is_simple="false" name="Normal" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="true" name="Agility" />
+        <category_choice is_simple="false" name="Strength" />
+		<category_choice is_simple="true" name="Mutation" />
+    </position>
+    <position name="skaven_renegade" cost="5" max="1" min="0" mov="7" str="3" ag="3" ar="7">
+		<position_skill name="animosity" />
+        <category_choice is_simple="true" name="Normal" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="false" name="Agility" />
+        <category_choice is_simple="false" name="Strength" />
+		<category_choice is_simple="true" name="Mutation" />
+    </position>
+    <position name="dark_elf_renegade" cost="7" max="1" min="0" mov="6" str="3" ag="4" ar="8">
+        <position_skill name="animosity" /> 
+        <category_choice is_simple="true" name="Normal" />
+		<category_choice is_simple="true" name="Agility" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="false" name="Strength" />
+		<category_choice is_simple="true" name="Mutation" />
+    </position>
+    <position name="troll" cost="11" max="1" min="0" mov="4" str="5" ag="1" ar="9">
+		<position_skill name="loner" />
+		<position_skill name="really_stupid" />
+		<position_skill name="always_hungry" />
+		<position_skill name="mighty_blow" />
+		<position_skill name="regeneration" />
+		<position_skill name="throw_teammate" />
+		<category_choice is_simple="true" name="Strength" />
+		<category_choice is_simple="false" name="Normal" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+		<category_choice is_simple="false" name="Mutation" />
+  	</position>
+  	<position name="ogre" cost="14" max="6" min="0" mov="5" str="5" ag="2" ar="9">
+		<position_skill name="bone_head" />
+		<position_skill name="loner" />
+		<position_skill name="mighty_blow" />
+		<position_skill name="thick_skull" />
+		<position_skill name="throw_teammate" />
+		<category_choice is_simple="true" name="Strength" />
+		<category_choice is_simple="false" name="Normal" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+		<category_choice is_simple="false" name="Mutation" />
+  	</position>
+  	<position name="minotaur" cost="15" max="1" min="0" mov="5" str="5" ag="2" ar="8">
+      <position_skill name="loner" />
+      <position_skill name="wild_animal" />
+      <position_skill name="thick_skull" />
+      <position_skill name="mighty_blow" />
+      <position_skill name="frenzy" />
+      <position_skill name="horns" />
+      <category_choice is_simple="true" name="Strength" />
+      <category_choice is_simple="false" name="Normal" />
+      <category_choice is_simple="false" name="Agility" />
+      <category_choice is_simple="false" name="Pass" />
+      <category_choice is_simple="false" name="Mutation" />
+    </position>
+	<position name="journeyman" cost="5" max="11" min="0" mov="6" str="3" ag="3" ar="8">
+		<position_skill name="loner" />
+	</position>
+</race>
+<race name="slann" reroll_cost="5" use_apothicary="1">
+	<position name="lineman" cost="6" max="16" min="0" mov="6" str="3" ag="3" ar="8">
+		<position_skill name="leap" />
+		<position_skill name="very_long_legs" />
+		<category_choice is_simple="true" name="Normal" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+		<category_choice is_simple="false" name="Strength" />
+	</position>
+	<position name="catcher" cost="8" max="4" min="0" mov="7" str="2" ag="4" ar="7">
+		<position_skill name="leap" />
+		<position_skill name="very_long_legs" />
+		<position_skill name="diving_catch" />
+		<category_choice is_simple="true" name="Normal" />
+		<category_choice is_simple="true" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+		category_choice is_simple="false" name="Strength" />
+	</position>
+	<position name="blitzer" cost="11" max="4" min="0" mov="7" str="3" ag="3" ar="8">
+		<position_skill name="leap" />
+		<position_skill name="very_long_legs" />
+		<position_skill name="side_step" />
+		<position_skill name="diving_tackle" />
+		<category_choice is_simple="true" name="Normal" />
+		<category_choice is_simple="true" name="Strength" />
+		<category_choice is_simple="true" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+	</position>
+  	<position name="kroxigor" cost="14" max="1" min="0" mov="6" str="5" ag="1" ar="9">
+      <position_skill name="loner" />
+      <position_skill name="bone_head" />
+      <position_skill name="mighty_blow" />
+      <position_skill name="prehensile_tail" />
+      <position_skill name="thick_skull" />
+      <category_choice is_simple="false" name="Agility" /> 
+      <category_choice is_simple="false" name="Normal" />
+      <category_choice is_simple="false" name="Pass" />
+      <category_choice is_simple="true" name="Strength" />
+    </position>
+	<position name="journeyman" cost="6" max="11" min="0" mov="6" str="3" ag="3" ar="8">
+	  <position_skill name="loner" />
+	  <position_skill name="leap" />
+	  <position_skill name="very_long_legs" />
+	</position>
+</race>
+<race name="underworld" reroll_cost="7" use_apothicary="1">
+	<position name="underworld_goblin" cost="4" max="1" min="0" mov="6" str="2" ag="3" ar="7">
+		<position_skill name="dodge" />
+        <position_skill name="right_stuff" />
+        <position_skill name="stunty" />
+		<category_choice is_simple="false" name="Normal" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="true" name="Agility" />
+        <category_choice is_simple="false" name="Strength" />
+		<category_choice is_simple="true" name="Mutation" />
+    </position>
+ 	<position name="lineman" cost="5" max="2" min="0" mov="7" str="3" ag="3" ar="7">
+ 		<position_skill name="animosity" />
+		<category_choice is_simple="true" name="Normal" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+		<category_choice is_simple="false" name="Strength" />
+		<category_choice is_simple="true" name="Mutation" />
+ 	</position>
+	<position name="thrower" cost="7" max="2" min="0" mov="7" str="3" ag="3" ar="7">
+		<position_skill name="sure_hands" />
+		<position_skill name="pass" />
+		<position_skill name="animosity" />
+		<category_choice is_simple="true" name="Normal" />
+		<category_choice is_simple="true" name="Pass" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Strength" />
+		<category_choice is_simple="true" name="Mutation" />
+ 	</position>
+ 	<position name="storm_vermin" cost="9" max="4" min="0" mov="7" str="3" ag="3" ar="8">
+		<position_skill name="block" />
+		<position_skill name="animosity" />
+		<category_choice is_simple="true" name="Normal" />
+		<category_choice is_simple="true" name="Strength" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+		<category_choice is_simple="true" name="Mutation" />
+ 	</position>
+ 	<position name="warpstone_troll" cost="11" max="1" min="0" mov="4" str="5" ag="1" ar="9">
+		<position_skill name="loner" />
+		<position_skill name="really_stupid" />
+		<position_skill name="always_hungry" />
+		<position_skill name="mighty_blow" />
+		<position_skill name="throw_teammate" />
+		<position_skill name="regeneration" />
+		<category_choice is_simple="true" name="Strength" />
+		<category_choice is_simple="false" name="Normal" />
+		<category_choice is_simple="false" name="Agility" />
+		<category_choice is_simple="false" name="Pass" />
+		<category_choice is_simple="false" name="Mutation" />
+ 	</position>
+  	<position name="journeyman" cost="4" max="1" min="0" mov="6" str="2" ag="3" ar="7">
+  		<position_skill name="loner" />
+		<position_skill name="dodge" />
+        <position_skill name="right_stuff" />
+        <position_skill name="stunty" />
+		<category_choice is_simple="false" name="Normal" />
+        <category_choice is_simple="false" name="Pass" />
+        <category_choice is_simple="true" name="Agility" />
+        <category_choice is_simple="false" name="Strength" />
+		<category_choice is_simple="true" name="Mutation" />
+    </position>
+</race>
+</configuration>

@@ -1,0 +1,5 @@
+﻿Ajouter le contrôle des limites de position ;
+Ajouter l'import à partir du jeu vidéo ;
+Ajouter les tests unitaires ;
+Ajouter un message d'erreur a l'export BBEL si l'équipe n'est pas exportable ;
+Règler le problème des suppressions de joueur.
