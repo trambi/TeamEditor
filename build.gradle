@@ -1,0 +1,23 @@
+apply plugin: 'java'
+compileJava {options.encoding = "UTF-8"}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    testCompile 'junit:junit:4.10'
+    compile 'org.xerial:sqlite-jdbc:3.7.2'
+}
+
+version='0.99.27'
+        
+jar {
+    manifest {
+        attributes(
+                "Main-Class": "org.tisseursdechimeres.bb.teameditor.TeamEditor",
+                "Implementation-Version": version,
+                "Build-Assembly-User": System.getProperty("user.name"),
+                "Build-Assembly-Date": new java.util.Date().toString(),
+                "Class-Path": configurations.compile.collect { "lib/"+it.getName() }.join(' ')
+        )
+    }
+}
